@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stellar — Valentin Janequin</title>
+<meta name="description" content="Stellar — Festival d'Avignon 2025. Réalisation technique et création LED, disque scénique modulaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html" aria-current="page">Portfolio</a></li>
+      <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-header" style="padding-bottom: 0;">
+    <div class="wrap">
+      <a href="index.html" class="back-link reveal">← Retour au portfolio</a>
+      <div class="eyebrow reveal">Festival d'Avignon — 2025</div>
+      <h1 class="reveal">Stellar</h1>
+      <p class="sub reveal reveal-delay-1">Réalisation technique & création LED</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="max-width: 70ch;">
+      <div class="reveal">
+        <p class="desc">
+          Stellar est une pièce de pop-théâtre immersif présentée au Festival
+          d'Avignon 2025. Le projet demandait une refonte complète du disque
+          scénique central : passer d'une pièce unique et filaire à six
+          modules autonomes, sans fil et alimentés par batterie, capables de
+          suivre les contraintes d'une tournée (montage rapide, robustesse,
+          autonomie).
+        </p>
+        <p class="desc">
+          Mon rôle a couvert la conception mécanique des modules, l'intégration
+          électronique (pilotage LED, gestion d'énergie embarquée) et la
+          fabrication des pièces, en coordination avec l'équipe artistique du
+          spectacle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="wrap">
+      <div class="eyebrow reveal">Galerie</div>
+
+      <!--
+        COMMENT AJOUTER TES PHOTOS :
+        1. Crée un dossier "images" à côté de ce fichier HTML.
+        2. Dépose tes photos dedans (ex: images/stellar-01.jpg).
+        3. Remplace un bloc <button class="gallery-tile">...</button> ci-dessous par :
+
+        <button class="gallery-tile" data-caption="Ta légende ici">
+          <img src="images/stellar-01.jpg" alt="Ta légende ici">
+        </button>
+
+        Le clic ouvrira automatiquement la photo en grand (lightbox).
+      -->
+
+      <div class="gallery-grid">
+        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/stellar-01.jpg</button>
+        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/stellar-02.jpg</button>
+        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/stellar-03.jpg</button>
+        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/stellar-04.jpg</button>
+        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/stellar-05.jpg</button>
+        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/stellar-06.jpg</button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="project-nav">
+    <a href="project-atelier-stoneto.html"><span class="dir">← Projet précédent</span><span class="title">Atelier Stoneto</span></a>
+    <a href="project-aventure-fantastique.html"><span class="dir">Projet suivant →</span><span class="title">L'Aventure Fantastique</span></a>
+  </nav>
+
+</main>
+
+
+<div class="lightbox">
+  <button class="lightbox-close" aria-label="Fermer">✕</button>
+  <img src="" alt="">
+  <div class="lightbox-caption"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
