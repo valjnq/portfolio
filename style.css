@@ -192,8 +192,19 @@ p { margin: 0; }
   cursor: pointer;
 }
 
+.nav-current {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 @media (max-width: 760px) {
   .nav-toggle { display: block; }
+  .nav { justify-content: space-between; }
+  .nav-current { display: block; }
   .nav-links {
     position: absolute;
     top: 100%;
@@ -293,6 +304,16 @@ section { padding: 110px 0; }
 }
 
 /* ==========================================================================
+   DÉSACTIVATION TEMPORAIRE DES LIENS PROJETS
+   Les pages projets ne sont pas encore prêtes.
+   Pour RÉACTIVER les clics : supprimer (ou commenter) ce bloc entier.
+   ========================================================================== */
+.work-card {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* ==========================================================================
    Bandeau image plein largeur
    ========================================================================== */
 
@@ -316,7 +337,7 @@ section { padding: 110px 0; }
    ========================================================================== */
 
 .hero {
-  padding: 140px 0 100px;
+  padding: 40px 0 50px;
   position: relative;
 }
 
@@ -344,7 +365,8 @@ section { padding: 110px 0; }
 
 .hero-sub {
   margin-top: 28px;
-  max-width: 52ch;
+  max-width: none;
+  white-space: nowrap;
   color: var(--ink-dim);
   font-size: 1.05rem;
 }
@@ -354,6 +376,12 @@ section { padding: 110px 0; }
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .hero-sub {
+    white-space: normal;
+  }
 }
 
 /* ==========================================================================
@@ -1038,7 +1066,7 @@ form.contact-form {
 
 /* Page header (pages secondaires) */
 .page-header {
-  padding: 160px 0 60px;
+  padding: 40px 0 40px;
 }
 
 .page-header .eyebrow { margin-bottom: 24px; }
