@@ -203,6 +203,8 @@ p { margin: 0; }
 
 .nav-current {
   display: none;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.06em;
@@ -213,7 +215,8 @@ p { margin: 0; }
 @media (max-width: 760px) {
   .nav-toggle { display: block; order: 2; margin-left: auto; }
   .nav { justify-content: flex-end; }
-  .nav-current { display: block; margin-right: auto; }
+  .nav-current { display: inline-flex; margin-right: auto; }
+  .back-link { display: none !important; }
   .nav-links {
     position: absolute;
     top: 100%;
@@ -271,6 +274,8 @@ section { padding: 110px 0; }
 /* Le bloc juste avant la nav de projet (généralement la galerie) n'a pas
    besoin de son padding-bottom complet : la nav a déjà son propre espacement. */
 section:has(+ .project-nav) { padding-bottom: 40px; }
+section:has(+ .project-nav) .eyebrow { color: var(--ink-faint); }
+section:has(+ .project-nav) .eyebrow::before { background: var(--ink-faint); }
 
 .linkedin-embed {
   display: flex;
@@ -407,6 +412,11 @@ section:has(+ .project-nav) { padding-bottom: 40px; }
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .hero { padding-bottom: 20px; }
+  .work-grid { margin-top: 16px; }
 }
 
 @media (max-width: 760px) {
@@ -751,7 +761,7 @@ form.contact-form {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
-  margin-top: 56px;
+  margin-top: 36px;
 }
 
 .work-card {
@@ -1199,5 +1209,9 @@ form.contact-form {
 }
 
 @media (max-width: 760px) {
-  .page-header { padding-top: 8px; }
+  .page-header { padding-top: 32px; }
+
+  main > section:has(.gallery-wrap) { order: 1; padding-bottom: 24px !important; }
+  main > section:has(.desc) { order: 2; padding-top: 0 !important; }
+  main > .project-nav { order: 3; }
 }
