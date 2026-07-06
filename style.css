@@ -856,7 +856,7 @@ form.contact-form {
 .desc {
   font-size: 1.02rem;
   color: var(--ink-dim);
-  max-width: 70ch;
+  max-width: 90ch;
 }
 .desc + .desc { margin-top: 18px; }
 
