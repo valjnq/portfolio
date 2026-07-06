@@ -63,7 +63,12 @@ if (workGrid) {
 const revealGroup = document.querySelectorAll(".reveal-group");
 if (revealGroup.length) {
   if ("IntersectionObserver" in window) {
-    const showGroup = () => revealGroup.forEach((el) => el.classList.add("is-visible"));
+    const showGroup = () => {
+      revealGroup.forEach((el) => el.classList.add("is-visible"));
+      document
+        .querySelectorAll(".gallery-wrap")
+        .forEach((el) => el.classList.add("is-visible"));
+    };
 
     const groupObserver2 = new IntersectionObserver(
       (entries) => {
@@ -102,6 +107,9 @@ if (revealGroup.length) {
     revealGroup.forEach((el) => groupObserver2.observe(el));
   } else {
     revealGroup.forEach((el) => el.classList.add("is-visible"));
+    document
+      .querySelectorAll(".gallery-wrap")
+      .forEach((el) => el.classList.add("is-visible"));
   }
 }
 
