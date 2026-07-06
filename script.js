@@ -113,9 +113,10 @@ if (lightbox) {
   const closeBtn = lightbox.querySelector(".lightbox-close");
   const prevBtn = lightbox.querySelector(".lightbox-prev");
   const nextBtn = lightbox.querySelector(".lightbox-next");
-  // Les vignettes navigables : vraie photo OU vidéo (data-embed-src)
+  // Les vignettes navigables : vraie photo, vidéo embarquée (iframe) OU vidéo locale (fichier)
   const tiles = Array.from(document.querySelectorAll(".gallery-tile")).filter(
-    (tile) => tile.querySelector("img") || tile.dataset.embedSrc
+    (tile) =>
+      tile.querySelector("img") || tile.dataset.embedSrc || tile.dataset.videoSrc
   );
   let currentIndex = -1;
 
@@ -124,6 +125,7 @@ if (lightbox) {
     currentIndex = (index + tiles.length) % tiles.length;
     const tile = tiles[currentIndex];
     const embedSrc = tile.dataset.embedSrc;
+    const videoSrc = tile.dataset.videoSrc;
 
     if (embedSrc) {
       lightboxImg.style.display = "none";
@@ -138,6 +140,16 @@ if (lightbox) {
           '" title="' +
           (tile.getAttribute("aria-label") || "Vidéo") +
           '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+      }
+    } else if (videoSrc) {
+      lightboxImg.style.display = "none";
+      lightboxImg.src = "";
+      if (lightboxVideo) {
+        lightboxVideo.style.display = "block";
+        lightboxVideo.innerHTML =
+          '<video src="' +
+          videoSrc +
+          '" controls autoplay playsinline loop></video>';
       }
     } else {
       if (lightboxVideo) {
@@ -156,12 +168,19 @@ if (lightbox) {
   };
 
   const openLightbox = (index) => {
+    // Met en pause les vidéos qui jouent en boucle dans la galerie
+    // (évite d'avoir la même vidéo qui joue en double, petite ET en grand)
+    document.querySelectorAll(".gallery-tile video").forEach((v) => v.pause());
     showAt(index);
     lightbox.classList.add("open");
   };
   const closeLightbox = () => {
     lightbox.classList.remove("open");
     if (lightboxVideo) lightboxVideo.innerHTML = ""; // stoppe la lecture
+    // Relance les vidéos en boucle de la galerie
+    document.querySelectorAll(".gallery-tile video[autoplay]").forEach((v) => {
+      v.play().catch(() => {});
+    });
   };
 
   tiles.forEach((tile, i) => {
