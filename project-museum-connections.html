@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Museum Connections — Valentin Janequin</title>
-<meta name="description" content="Museum Connections — Valentin Janequin, concepteur-fabricant.">
+<title>Museum Connections</title>
+<meta name="description" content="Museum Connections">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
 <body>
 <header class="site-header">
   <nav class="nav">
+    <span class="nav-current">Portfolio</span>
     <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" aria-current="page">Portfolio</a></li>
@@ -30,15 +31,14 @@
 
   <section class="page-header" style="padding-bottom: 0;">
     <div class="wrap">
-      <a href="index.html" class="back-link reveal">← Retour au portfolio</a>
-      <div class="eyebrow reveal">Client — Année</div>
+      <a href="index.html" class="back-link reveal">← Retour à l'accueil</a>
       <h1 class="reveal">Museum Connections</h1>
-      <p class="sub reveal reveal-delay-1">Rôle à préciser</p>
+      <p class="project-meta-line reveal reveal-delay-1">Client à préciser • Paris • 2026</p>
     </div>
   </section>
 
-  <section>
-    <div class="wrap" style="max-width: 70ch;">
+  <section style="padding: 32px 0;">
+    <div class="wrap">
       <div class="reveal">
         <p class="desc">
           Décris ici le contexte du projet, ton rôle, et les techniques utilisées. [À compléter]
@@ -50,11 +50,15 @@
   <section style="padding-top: 0;">
     <div class="wrap">
       <div class="eyebrow reveal">Galerie</div>
-      <div class="gallery-grid">
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/museum-connections-01.jpg</button>
+      <div class="gallery-wrap">
+        <button class="gallery-arrow gallery-arrow-left" aria-label="Précédent"></button>
+        <div class="gallery-grid">
+        <button class="gallery-tile reveal"><img src="images/museum-connections-cover.jpg" alt="Museum Connections"></button>
         <button class="gallery-tile reveal"><span class="ph-icon"></span>images/museum-connections-02.jpg</button>
         <button class="gallery-tile reveal"><span class="ph-icon"></span>images/museum-connections-03.jpg</button>
         <button class="gallery-tile reveal"><span class="ph-icon"></span>images/museum-connections-04.jpg</button>
+        </div>
+        <button class="gallery-arrow gallery-arrow-right" aria-label="Suivant"></button>
       </div>
     </div>
   </section>
@@ -69,8 +73,9 @@
 
 <div class="lightbox">
   <button class="lightbox-close" aria-label="Fermer">✕</button>
+  <button class="lightbox-prev" aria-label="Photo précédente"></button>
   <img src="" alt="">
-  <div class="lightbox-caption"></div>
+  <button class="lightbox-next" aria-label="Photo suivante"></button>
 </div>
 
 <script src="script.js"></script>

@@ -202,9 +202,9 @@ p { margin: 0; }
 }
 
 @media (max-width: 760px) {
-  .nav-toggle { display: block; }
-  .nav { justify-content: space-between; }
-  .nav-current { display: block; }
+  .nav-toggle { display: block; order: 2; margin-left: auto; }
+  .nav { justify-content: flex-end; }
+  .nav-current { display: block; margin-right: auto; }
   .nav-links {
     position: absolute;
     top: 100%;
@@ -302,16 +302,6 @@ section { padding: 110px 0; }
   width: 24px;
   height: 1px;
   background: var(--accent-dim);
-}
-
-/* ==========================================================================
-   DÉSACTIVATION TEMPORAIRE DES LIENS PROJETS
-   Les pages projets ne sont pas encore prêtes.
-   Pour RÉACTIVER les clics : supprimer (ou commenter) ce bloc entier.
-   ========================================================================== */
-.work-card {
-  pointer-events: none;
-  cursor: default;
 }
 
 /* ==========================================================================
@@ -823,6 +813,13 @@ form.contact-form {
   align-items: start;
 }
 
+.desc {
+  font-size: 1.02rem;
+  color: var(--ink-dim);
+  max-width: 70ch;
+}
+.desc + .desc { margin-top: 18px; }
+
 .project-detail-grid .desc {
   font-size: 1.02rem;
   color: var(--ink-dim);
@@ -847,16 +844,26 @@ form.contact-form {
   .project-detail-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
+.gallery-wrap {
+  position: relative;
+  margin-top: 20px;
+}
+
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 1px;
   background: var(--line);
   border: 1px solid var(--line);
-  margin-top: 56px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
+.gallery-grid::-webkit-scrollbar { display: none; }
 
 .gallery-tile {
+  flex: 1 0 calc((100% - 2px) / 3);
   aspect-ratio: 4 / 3;
   background: var(--bg-panel);
   display: flex;
@@ -875,6 +882,7 @@ form.contact-form {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   transition: background 0.2s ease;
+  scroll-snap-align: start;
 }
 
 .gallery-tile:hover { background: var(--bg-panel-alt); color: var(--ink-dim); }
@@ -903,8 +911,42 @@ form.contact-form {
   transform: rotate(-18deg);
 }
 
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 19, 22, 0.85);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.gallery-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.gallery-arrow-left { left: 8px; }
+.gallery-arrow-right { right: 8px; }
+
+.gallery-arrow::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.gallery-arrow-left::before { transform: rotate(135deg); margin-left: 4px; }
+.gallery-arrow-right::before { transform: rotate(-45deg); margin-right: 4px; }
+
 @media (max-width: 760px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-tile { flex-basis: calc((100% - 1px) / 2); }
+}
+
+@media (max-width: 480px) {
+  .gallery-tile { flex-basis: 100%; }
 }
 
 /* Lightbox */
@@ -943,17 +985,42 @@ form.contact-form {
 }
 .lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
 
-.lightbox-caption {
+.lightbox-prev,
+.lightbox-next {
   position: absolute;
-  bottom: 32px;
-  left: 0;
-  right: 0;
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 19, 22, 0.85);
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.lightbox-prev:hover, .lightbox-next:hover { border-color: var(--accent); color: var(--accent); }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev::before,
+.lightbox-next::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.lightbox-prev::before { transform: rotate(135deg); margin-left: 5px; }
+.lightbox-next::before { transform: rotate(-45deg); margin-right: 5px; }
+
+@media (max-width: 600px) {
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+  .lightbox-prev, .lightbox-next { width: 40px; height: 40px; }
+  .lightbox-prev::before, .lightbox-next::before { width: 10px; height: 10px; }
 }
 
 /* Prochain / précédent projet */
@@ -967,15 +1034,15 @@ form.contact-form {
   font-family: var(--font-mono);
 }
 .project-nav a:first-child { border-right: 1px solid var(--line); }
-.project-nav .dir { font-size: 0.7rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 10px; }
-.project-nav .title { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); }
+.project-nav .dir { font-size: 0.7rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 10px; text-align: center; }
+.project-nav .title { font-family: var(--font-display); font-size: 1.15rem; color: var(--ink); display: block; text-align: center; }
 .project-nav a:hover .title { color: var(--accent); }
 .project-nav a:last-child { text-align: right; }
 
 @media (max-width: 600px) {
-  .project-nav { grid-template-columns: 1fr; }
-  .project-nav a:first-child { border-right: none; border-bottom: 1px solid var(--line); }
-  .project-nav a:last-child { text-align: left; }
+  .project-nav a { padding: 24px 16px; }
+  .project-nav .dir { font-size: 0.62rem; margin-bottom: 6px; }
+  .project-nav .title { font-size: 0.95rem; }
 }
 
 /* ==========================================================================
@@ -1068,7 +1135,7 @@ form.contact-form {
 
 /* Page header (pages secondaires) */
 .page-header {
-  padding: 40px 0 40px;
+  padding: 16px 0 40px;
 }
 
 .page-header .eyebrow { margin-bottom: 24px; }
@@ -1079,4 +1146,17 @@ form.contact-form {
   margin-top: 20px;
   color: var(--ink-dim);
   max-width: 60ch;
+}
+
+.project-meta-line {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .page-header { padding-top: 8px; }
 }

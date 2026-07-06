@@ -1,88 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parc Astérix — Valentin Janequin</title>
-<meta name="description" content="Parc Astérix — sept casques romains, fabrication et finitions pour The Immersers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="site-header">
-  <nav class="nav">
-    <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Portfolio</a></li>
-      <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les comptoirs d'Epidemaïs</title>
+    <meta name="description" content="Les comptoirs d'Epidemaïs" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <span class="nav-current">Portfolio</span>
+        <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Portfolio</a></li>
+          <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<main>
+    <main>
+      <section class="page-header" style="padding-bottom: 0">
+        <div class="wrap">
+          <a href="index.html" class="back-link reveal">← Retour à l'accueil</a>
+          <h1 class="reveal">Les comptoirs d'Épidemaïs</h1>
+          <p class="project-meta-line reveal reveal-delay-1">
+            The Immersers • Parc Astérix • 2026
+          </p>
+        </div>
+      </section>
 
-  <section class="page-header" style="padding-bottom: 0;">
-    <div class="wrap">
-      <a href="index.html" class="back-link reveal">← Retour au portfolio</a>
-      <div class="eyebrow reveal">The Immersers — 2024</div>
-      <h1 class="reveal">Parc Astérix</h1>
-      <p class="sub reveal reveal-delay-1">Fabrication — casques romains</p>
+      <section style="padding: 32px 0">
+        <div class="wrap">
+          <div class="reveal">
+            <p class="desc">
+              Fabrication de sept casques romains (1 centurion, 6 légionnaires
+              dont 2 cabossés pour simuler une rencontre avec les gaulois) destinés à une intégration au décor du
+              restaurant Les Comptoirs d'Épidemaïs dans le cadre de la refonte d'une partie du parc Astérix
+              par le studio de scénographie nantais The Immersers
+            </p>
+            <p class="desc">
+              Modélisation 3D sur références et impression 3D, assemblage, ponçage et lissage, peinture et patine.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding-top: 0">
+        <div class="wrap">
+          <div class="eyebrow reveal">Galerie</div>
+          <div class="gallery-wrap">
+            <button
+              class="gallery-arrow gallery-arrow-left"
+              aria-label="Précédent"
+            ></button>
+            <div class="gallery-grid">
+              <button class="gallery-tile reveal">
+                <img
+                  src="images/asterix-cover.jpg"
+                  alt="Les comptoirs d'Epidemaïs"
+                />
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/asterix-02.jpg
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/asterix-03.jpg
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/asterix-04.jpg
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/asterix-05.jpg
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/asterix-06.jpg
+              </button>
+            </div>
+            <button
+              class="gallery-arrow gallery-arrow-right"
+              aria-label="Suivant"
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="project-nav">
+        <a href="project-orkizomai.html"
+          ><span class="dir">← Projet précédent</span
+          ><span class="title">Orkizomai</span></a
+        >
+        <a href="project-stade-de-france.html"
+          ><span class="dir">Projet suivant →</span
+          ><span class="title">120 ans du Crunch</span></a
+        >
+      </nav>
+    </main>
+
+    <div class="lightbox">
+      <button class="lightbox-close" aria-label="Fermer">✕</button>
+      <button class="lightbox-prev" aria-label="Photo précédente"></button>
+      <img src="" alt="" />
+      <button class="lightbox-next" aria-label="Photo suivante"></button>
     </div>
-  </section>
 
-  <section>
-    <div class="wrap" style="max-width: 70ch;">
-      <div class="reveal">
-        <p class="desc">
-          Fabrication de sept casques romains destinés à une expérience du
-          parc, réalisée pour le studio nantais The Immersers. Les pièces ont
-          été imprimées en PLA puis finies à la peinture pour un rendu fidèle
-          aux références artistiques du projet.
-        </p>
-        <p class="desc">
-          Le projet a été documenté dans un dossier des ouvrages exécutés
-          (DOE) complet, détaillant le processus de fabrication pièce par
-          pièce.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top: 0;">
-    <div class="wrap">
-      <div class="eyebrow reveal">Galerie</div>
-      <div class="gallery-grid">
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/asterix-01.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/asterix-02.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/asterix-03.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/asterix-04.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/asterix-05.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/asterix-06.jpg</button>
-      </div>
-    </div>
-  </section>
-
-  <nav class="project-nav">
-    <a href="project-orkizomai.html"><span class="dir">← Projet précédent</span><span class="title">Orkizomai</span></a>
-    <a href="project-stade-de-france.html"><span class="dir">Projet suivant →</span><span class="title">Crunch</span></a>
-  </nav>
-
-</main>
-
-
-<div class="lightbox">
-  <button class="lightbox-close" aria-label="Fermer">✕</button>
-  <img src="" alt="">
-  <div class="lightbox-caption"></div>
-</div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

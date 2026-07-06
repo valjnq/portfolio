@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jardin d'Acclimatation — Valentin Janequin</title>
-<meta name="description" content="Jardin d'Acclimatation — Valentin Janequin, concepteur-fabricant.">
+<title>Le Fort des Pirates</title>
+<meta name="description" content="Le Fort des Pirates">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
 <body>
 <header class="site-header">
   <nav class="nav">
+    <span class="nav-current">Portfolio</span>
     <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" aria-current="page">Portfolio</a></li>
@@ -30,18 +31,21 @@
 
   <section class="page-header" style="padding-bottom: 0;">
     <div class="wrap">
-      <a href="index.html" class="back-link reveal">← Retour au portfolio</a>
-      <div class="eyebrow reveal">Client — Année</div>
-      <h1 class="reveal">Jardin d'Acclimatation</h1>
-      <p class="sub reveal reveal-delay-1">Rôle à préciser</p>
+      <a href="index.html" class="back-link reveal">← Retour à l'accueil</a>
+      <h1 class="reveal">Le Fort des Pirates</h1>
+      <p class="project-meta-line reveal reveal-delay-1">The Immersers • Jardin d'Acclimatation • 2026</p>
     </div>
   </section>
 
-  <section>
-    <div class="wrap" style="max-width: 70ch;">
+  <section style="padding: 32px 0;">
+    <div class="wrap">
       <div class="reveal">
         <p class="desc">
-          Décris ici le contexte du projet, ton rôle, et les techniques utilisées. [À compléter]
+          Fabrication sur mesure d'une cloche pour le Fort des Pirates dans le cadre de sa rénovation au Jardin d'Acclimatation à Neuilly-sur-Seine par le studio de scénographie nantais The Immersers.
+        </p>
+        <p class="desc">
+                  Construction de l'objet pour un usage extérieur longue durée (résistance aux UV, à l'humidité, aux variations de température), peinture et patine pour effet de vieillissement et fabrication d'un support en bois.
+
         </p>
       </div>
     </div>
@@ -50,18 +54,22 @@
   <section style="padding-top: 0;">
     <div class="wrap">
       <div class="eyebrow reveal">Galerie</div>
-      <div class="gallery-grid">
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/jardin-acclimatation-01.jpg</button>
+      <div class="gallery-wrap">
+        <button class="gallery-arrow gallery-arrow-left" aria-label="Précédent"></button>
+        <div class="gallery-grid">
+        <button class="gallery-tile reveal"><img src="images/jardin-acclimatation-cover.JPG" alt="Le Fort des Pirates"></button>
         <button class="gallery-tile reveal"><span class="ph-icon"></span>images/jardin-acclimatation-02.jpg</button>
         <button class="gallery-tile reveal"><span class="ph-icon"></span>images/jardin-acclimatation-03.jpg</button>
         <button class="gallery-tile reveal"><span class="ph-icon"></span>images/jardin-acclimatation-04.jpg</button>
+        </div>
+        <button class="gallery-arrow gallery-arrow-right" aria-label="Suivant"></button>
       </div>
     </div>
   </section>
 
   <nav class="project-nav">
     <a href="project-la-ligue-des-gentlemen.html"><span class="dir">← Projet précédent</span><span class="title">La Ligue des Gentlemen</span></a>
-    <a href="project-musee-24h.html"><span class="dir">Projet suivant →</span><span class="title">Musée des 24h du Mans</span></a>
+    <a href="project-musee-24h.html"><span class="dir">Projet suivant →</span><span class="title">Musée du sport automobile</span></a>
   </nav>
 
 </main>
@@ -69,8 +77,9 @@
 
 <div class="lightbox">
   <button class="lightbox-close" aria-label="Fermer">✕</button>
+  <button class="lightbox-prev" aria-label="Photo précédente"></button>
   <img src="" alt="">
-  <div class="lightbox-caption"></div>
+  <button class="lightbox-next" aria-label="Photo suivante"></button>
 </div>
 
 <script src="script.js"></script>

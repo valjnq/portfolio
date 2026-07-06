@@ -1,78 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malle à jeux — Korrigames — Valentin Janequin</title>
-<meta name="description" content="Malle à jeux — Korrigames — Valentin Janequin, concepteur-fabricant.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="site-header">
-  <nav class="nav">
-    <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Portfolio</a></li>
-      <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malle à jeux interactive</title>
+    <meta name="description" content="Malle à jeux interactive" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <span class="nav-current">Portfolio</span>
+        <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Portfolio</a></li>
+          <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<main>
+    <main>
+      <section class="page-header" style="padding-bottom: 0">
+        <div class="wrap">
+          <a href="index.html" class="back-link reveal">← Retour à l'accueil</a>
+          <h1 class="reveal">Malle à jeux interactive</h1>
+          <p class="project-meta-line reveal reveal-delay-1">
+            Korrigames • Auray • 2026
+          </p>
+        </div>
+      </section>
 
-  <section class="page-header" style="padding-bottom: 0;">
-    <div class="wrap">
-      <a href="index.html" class="back-link reveal">← Retour au portfolio</a>
-      <div class="eyebrow reveal">Client — Année</div>
-      <h1 class="reveal">Malle à jeux — Korrigames</h1>
-      <p class="sub reveal reveal-delay-1">Rôle à préciser</p>
+      <section style="padding: 32px 0">
+        <div class="wrap">
+          <div class="reveal">
+            <p class="desc">
+              Co-conception en partenariat avec Korrigames et fabrication d'une malle à jeux interactive avec tablette intégrée : modélisation 3D et impression 3D pour fabrication du plateau de
+              jeu et menuiserie.
+            </p>
+            <p class="desc">
+              Développement d'une application autonome sur mesure qui rythme le
+              jeu et guide les participants tout au long de l'expérience sans
+              besoin de connexion internet.
+            </p>
+            <p class="desc">
+              Application adaptable pour une expérience personnalisée dans le cadre d'EVG et EVJF, anniversaires ou team buildings pour une durée de jeu de 1 à 4h.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding-top: 0">
+        <div class="wrap">
+          <div class="eyebrow reveal">Galerie</div>
+          <div class="gallery-wrap">
+            <button
+              class="gallery-arrow gallery-arrow-left"
+              aria-label="Précédent"
+            ></button>
+            <div class="gallery-grid">
+              <button class="gallery-tile reveal">
+                <img
+                  src="images/malle-korrigames-cover.jpg"
+                  alt="Malle à jeux interactive"
+                />
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/malle-korrigames-02.jpg
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/malle-korrigames-03.jpg
+              </button>
+              <button class="gallery-tile reveal">
+                <span class="ph-icon"></span>images/malle-korrigames-04.jpg
+              </button>
+            </div>
+            <button
+              class="gallery-arrow gallery-arrow-right"
+              aria-label="Suivant"
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="project-nav">
+        <a href="project-musee-24h.html"
+          ><span class="dir">← Projet précédent</span
+          ><span class="title">Musée du sport automobile</span></a
+        >
+        <a href="project-orkizomai.html"
+          ><span class="dir">Projet suivant →</span
+          ><span class="title">Orkizomai</span></a
+        >
+      </nav>
+    </main>
+
+    <div class="lightbox">
+      <button class="lightbox-close" aria-label="Fermer">✕</button>
+      <button class="lightbox-prev" aria-label="Photo précédente"></button>
+      <img src="" alt="" />
+      <button class="lightbox-next" aria-label="Photo suivante"></button>
     </div>
-  </section>
 
-  <section>
-    <div class="wrap" style="max-width: 70ch;">
-      <div class="reveal">
-        <p class="desc">
-          Décris ici le contexte du projet, ton rôle, et les techniques utilisées. [À compléter]
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top: 0;">
-    <div class="wrap">
-      <div class="eyebrow reveal">Galerie</div>
-      <div class="gallery-grid">
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/malle-korrigames-01.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/malle-korrigames-02.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/malle-korrigames-03.jpg</button>
-        <button class="gallery-tile reveal"><span class="ph-icon"></span>images/malle-korrigames-04.jpg</button>
-      </div>
-    </div>
-  </section>
-
-  <nav class="project-nav">
-    <a href="project-musee-24h.html"><span class="dir">← Projet précédent</span><span class="title">Musée des 24h du Mans</span></a>
-    <a href="project-orkizomai.html"><span class="dir">Projet suivant →</span><span class="title">Orkizomai</span></a>
-  </nav>
-
-</main>
-
-
-<div class="lightbox">
-  <button class="lightbox-close" aria-label="Fermer">✕</button>
-  <img src="" alt="">
-  <div class="lightbox-caption"></div>
-</div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
