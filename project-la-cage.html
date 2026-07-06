@@ -1,83 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Cage</title>
-<meta name="description" content="La Cage">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
-<link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="site-header">
-  <nav class="nav">
-    <a href="index.html" class="nav-current"><span class="nav-arrow">&lt;</span> Retour à l'accueil</a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
-    <ul class="nav-links">
-      <li><a href="index.html" aria-current="page">Portfolio</a></li>
-      <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Cage</title>
+    <meta name="description" content="La Cage" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a href="index.html" class="nav-current"
+          ><span class="nav-arrow">&lt;</span> Retour à l'accueil</a
+        >
+        <button class="nav-toggle" aria-label="Ouvrir le menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html" aria-current="page">Portfolio</a></li>
+          <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<main>
-
-  <section class="page-header" style="padding-bottom: 0;">
-    <div class="wrap">
-      <a href="index.html" class="back-link">&lt; Retour à l'accueil</a>
-      <h1 class="reveal">La Cage</h1>
-      <p class="project-meta-line reveal reveal-delay-1">Adastra Films • Les Studio de l'Ouest • 2026</p>
-    </div>
-  </section>
-
-  <section style="padding: 32px 0;">
-    <div class="wrap">
-      <div class="reveal reveal-group reveal-delay-2">
-        <p class="desc">
-          Conception et co-fabrication d'un faux panneau d'ascenseur fonctionnel pour le court métrage La Cage de Victor Cesca.
-        </p>
-        <p class="desc">
-          Fabrication sur mesure des boutons en impression 3D pour rétroéclairage, programmation et intégration de l'électronique. Durabilité de l'installation prévue pour chocs lors des cascades.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top: 0;">
-    <div class="wrap">
-      <div class="gallery-wrap">
-        <button class="gallery-arrow gallery-arrow-left" aria-label="Précédent"></button>
-        <div class="gallery-grid">
-        <button class="gallery-tile reveal reveal-group reveal-delay-2 no-slide"><img src="images/la-cage-cover.jpg" alt="La Cage"></button>
-
+    <main>
+      <section class="page-header" style="padding-bottom: 0">
+        <div class="wrap">
+          <a href="index.html" class="back-link">&lt; Retour à l'accueil</a>
+          <h1 class="reveal">La Cage</h1>
+          <p class="project-meta-line reveal reveal-delay-1">
+            Adastra Films • Les Studio de l'Ouest • 2026
+          </p>
         </div>
-        <button class="gallery-arrow gallery-arrow-right" aria-label="Suivant"></button>
-      </div>
+      </section>
+
+      <section style="padding: 32px 0">
+        <div class="wrap">
+          <div class="reveal reveal-group reveal-delay-2">
+            <p class="desc">
+              Conception et co-fabrication d'un faux panneau d'ascenseur
+              fonctionnel pour le court métrage La Cage de Victor Cesca, soutenu par la région Pays de la Loire et avec Oulaya Amamra.
+            </p>
+            <p class="desc">
+              Fabrication sur mesure des boutons en impression 3D pour
+              rétroéclairage, programmation et intégration de l'électronique.
+              Durabilité de l'installation prévue pour chocs lors des cascades.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding-top: 0">
+        <div class="wrap">
+          <div class="gallery-wrap">
+            <button
+              class="gallery-arrow gallery-arrow-left"
+              aria-label="Précédent"
+            ></button>
+            <div class="gallery-grid">
+              <button
+                class="gallery-tile reveal reveal-group reveal-delay-2 no-slide"
+                data-video-src="images/la-cage-video-01.mp4"
+                aria-label="Vidéo — La Cage"
+              >
+                <video
+                  src="images/la-cage-video-01.mp4"
+                  poster="images/la-cage-video-01-poster.jpg"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                ></video>
+              </button>
+              <button
+                class="gallery-tile reveal reveal-group reveal-delay-2 no-slide"
+              >
+                <img src="images/la-cage-cover.jpg" alt="La Cage" />
+              </button>
+              <button
+                class="gallery-tile reveal reveal-group reveal-delay-2 no-slide"
+              >
+                <img src="images/la-cage-02.jpg" alt="La Cage" />
+              </button>
+               <button
+                class="gallery-tile reveal reveal-group reveal-delay-2 no-slide"
+              >
+                <img src="images/la-cage-03.jpg" alt="La Cage" />
+              </button>
+               <button
+                class="gallery-tile reveal reveal-group reveal-delay-2 no-slide"
+              >
+                <img src="images/la-cage-04.jpg" alt="La Cage" />
+              </button>
+            </div>
+            <button
+            
+              class="gallery-arrow gallery-arrow-right"
+              aria-label="Suivant"
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <nav class="project-nav">
+        <a href="project-led-studio-son.html"
+          ><span class="dir">← Projet précédent</span
+          ><span class="title">Discal Studio</span></a
+        >
+        <a href="project-museum-connections.html"
+          ><span class="dir">Projet suivant →</span
+          ><span class="title">Museum Connections</span></a
+        >
+      </nav>
+    </main>
+
+    <div class="lightbox">
+      <button class="lightbox-close" aria-label="Fermer">✕</button>
+      <button class="lightbox-prev" aria-label="Photo précédente"></button>
+      <img src="" alt="" />
+      <div class="lightbox-video"></div>
+      <button class="lightbox-next" aria-label="Photo suivante"></button>
     </div>
-  </section>
 
-  <nav class="project-nav">
-    <a href="project-led-studio-son.html"><span class="dir">← Projet précédent</span><span class="title">Discal Studio</span></a>
-    <a href="project-museum-connections.html"><span class="dir">Projet suivant →</span><span class="title">Museum Connections</span></a>
-  </nav>
-
-</main>
-
-
-<div class="lightbox">
-  <button class="lightbox-close" aria-label="Fermer">✕</button>
-  <button class="lightbox-prev" aria-label="Photo précédente"></button>
-  <img src="" alt="">
-  <button class="lightbox-next" aria-label="Photo suivante"></button>
-</div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
