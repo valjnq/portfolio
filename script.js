@@ -57,15 +57,44 @@ if (workGrid) {
 // Apparition groupée description + galerie (pages projet) — tout en même temps,
 // déclenché dès que N'IMPORTE LEQUEL des éléments du groupe entre dans l'écran
 // (important : sur mobile la galerie est visuellement avant la description)
+// On attend que toutes les images/vidéos du groupe soient chargées avant de
+// révéler, pour éviter le flash "case grise -> photo qui apparaît d'un coup"
+// et garder texte + photos parfaitement synchronisés.
 const revealGroup = document.querySelectorAll(".reveal-group");
 if (revealGroup.length) {
   if ("IntersectionObserver" in window) {
+    const showGroup = () => revealGroup.forEach((el) => el.classList.add("is-visible"));
+
     const groupObserver2 = new IntersectionObserver(
       (entries) => {
         const anyVisible = entries.some((entry) => entry.isIntersecting);
         if (anyVisible) {
-          revealGroup.forEach((el) => el.classList.add("is-visible"));
           groupObserver2.disconnect();
+
+          const imgs = Array.from(document.querySelectorAll(".reveal-group img"));
+          const videos = Array.from(document.querySelectorAll(".reveal-group video"));
+
+          const imgReady = imgs.map((img) =>
+            img.complete
+              ? Promise.resolve()
+              : new Promise((resolve) => {
+                  img.addEventListener("load", resolve, { once: true });
+                  img.addEventListener("error", resolve, { once: true });
+                })
+          );
+          const videoReady = videos.map((v) =>
+            v.readyState >= 2
+              ? Promise.resolve()
+              : new Promise((resolve) => {
+                  v.addEventListener("loadeddata", resolve, { once: true });
+                  v.addEventListener("error", resolve, { once: true });
+                })
+          );
+
+          Promise.all([...imgReady, ...videoReady]).then(showGroup);
+          // Filet de sécurité : si une image/vidéo ne charge jamais, on révèle
+          // quand même après un court délai pour ne pas bloquer l'affichage.
+          setTimeout(showGroup, 1200);
         }
       },
       { threshold: 0, rootMargin: "0px 0px -10% 0px" }
