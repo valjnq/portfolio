@@ -9,7 +9,7 @@ if (navToggle && navLinks) {
 }
 
 // Apparition en fondu au scroll (respecte prefers-reduced-motion via CSS)
-const revealEls = document.querySelectorAll(".reveal");
+const revealEls = document.querySelectorAll(".reveal:not(.reveal-group)");
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
@@ -51,6 +51,28 @@ if (workGrid) {
     workGrid.querySelectorAll(".fade-card").forEach((el) => {
       el.classList.add("is-visible");
     });
+  }
+}
+
+// Apparition groupée description + galerie (pages projet) — tout en même temps,
+// déclenché dès que N'IMPORTE LEQUEL des éléments du groupe entre dans l'écran
+// (important : sur mobile la galerie est visuellement avant la description)
+const revealGroup = document.querySelectorAll(".reveal-group");
+if (revealGroup.length) {
+  if ("IntersectionObserver" in window) {
+    const groupObserver2 = new IntersectionObserver(
+      (entries) => {
+        const anyVisible = entries.some((entry) => entry.isIntersecting);
+        if (anyVisible) {
+          revealGroup.forEach((el) => el.classList.add("is-visible"));
+          groupObserver2.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+    );
+    revealGroup.forEach((el) => groupObserver2.observe(el));
+  } else {
+    revealGroup.forEach((el) => el.classList.add("is-visible"));
   }
 }
 
