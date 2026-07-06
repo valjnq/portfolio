@@ -65,24 +65,6 @@
               générer un effet de brasier.
             </p>
             <p class="desc"></p>
-            <div class="video-embed">
-              <iframe
-                src="https://www.youtube.com/embed/fNCwDpGM6Ng"
-                title="120 ans du Crunch"
-                frameborder="0"
-                allow="
-                  accelerometer;
-                  autoplay;
-                  clipboard-write;
-                  encrypted-media;
-                  gyroscope;
-                  picture-in-picture;
-                  web-share;
-                "
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
           </div>
         </div>
       </section>
@@ -95,10 +77,15 @@
               aria-label="Précédent"
             ></button>
             <div class="gallery-grid">
-              <button class="gallery-tile">
-                <img src="images/crunch-cover.jpg" alt="120 ans du Crunch" />
-              </button>
               
+              <button class="gallery-tile" data-embed-src="https://www.youtube.com/embed/fNCwDpGM6Ng" aria-label="Vidéo — 120 ans du Crunch">
+                <img src="https://img.youtube.com/vi/fNCwDpGM6Ng/hqdefault.jpg" alt="Vidéo 120 ans du Crunch" />
+                <span class="play-icon"></span>
+              </button>
+              <button class="gallery-tile" data-embed-src="https://www.youtube.com/embed/icW84agksGE" aria-label="Vidéo — 120 ans du Crunch">
+                <img src="https://img.youtube.com/vi/icW84agksGE/hqdefault.jpg" alt="Vidéo 120 ans du Crunch" />
+                <span class="play-icon"></span>
+              </button>
             </div>
             <button
               class="gallery-arrow gallery-arrow-right"
@@ -124,6 +111,7 @@
       <button class="lightbox-close" aria-label="Fermer">✕</button>
       <button class="lightbox-prev" aria-label="Photo précédente"></button>
       <img src="" alt="" />
+      <div class="lightbox-video"></div>
       <button class="lightbox-next" aria-label="Photo suivante"></button>
     </div>
 

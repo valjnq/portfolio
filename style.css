@@ -961,6 +961,31 @@ form.contact-form {
   transform: rotate(-18deg);
 }
 
+.gallery-tile .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(10, 10, 11, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-tile .play-icon::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid #fff;
+  margin-left: 4px;
+}
+.gallery-tile[data-embed-src] { position: relative; }
+
 .gallery-arrow {
   position: absolute;
   top: 50%;
@@ -1019,6 +1044,17 @@ form.contact-form {
   max-width: 100%;
   max-height: 85vh;
   border: 1px solid var(--line-strong);
+}
+
+.lightbox-video {
+  width: min(90vw, 960px);
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line-strong);
+}
+.lightbox-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .lightbox-close {
@@ -1187,6 +1223,10 @@ form.contact-form {
 /* Page header (pages secondaires) */
 .page-header {
   padding: 16px 0 40px;
+}
+
+.page-header:not(:has(.back-link)) {
+  padding-top: 40px;
 }
 
 .page-header .eyebrow { margin-bottom: 24px; }

@@ -87,21 +87,47 @@ document.querySelectorAll(".gallery-wrap").forEach((wrap) => {
 const lightbox = document.querySelector(".lightbox");
 if (lightbox) {
   const lightboxImg = lightbox.querySelector("img");
+  const lightboxVideo = lightbox.querySelector(".lightbox-video");
   const closeBtn = lightbox.querySelector(".lightbox-close");
   const prevBtn = lightbox.querySelector(".lightbox-prev");
   const nextBtn = lightbox.querySelector(".lightbox-next");
-  // Seules les vignettes ayant une vraie photo sont navigables
+  // Les vignettes navigables : vraie photo OU vidéo (data-embed-src)
   const tiles = Array.from(document.querySelectorAll(".gallery-tile")).filter(
-    (tile) => tile.querySelector("img")
+    (tile) => tile.querySelector("img") || tile.dataset.embedSrc
   );
   let currentIndex = -1;
 
   const showAt = (index) => {
     if (!tiles.length) return;
     currentIndex = (index + tiles.length) % tiles.length;
-    const img = tiles[currentIndex].querySelector("img");
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt || "";
+    const tile = tiles[currentIndex];
+    const embedSrc = tile.dataset.embedSrc;
+
+    if (embedSrc) {
+      lightboxImg.style.display = "none";
+      lightboxImg.src = "";
+      if (lightboxVideo) {
+        const autoplaySrc =
+          embedSrc + (embedSrc.includes("?") ? "&autoplay=1" : "?autoplay=1");
+        lightboxVideo.style.display = "block";
+        lightboxVideo.innerHTML =
+          '<iframe src="' +
+          autoplaySrc +
+          '" title="' +
+          (tile.getAttribute("aria-label") || "Vidéo") +
+          '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+      }
+    } else {
+      if (lightboxVideo) {
+        lightboxVideo.style.display = "none";
+        lightboxVideo.innerHTML = "";
+      }
+      const img = tile.querySelector("img");
+      lightboxImg.style.display = "block";
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || "";
+    }
+
     const multiple = tiles.length > 1;
     if (prevBtn) prevBtn.style.display = multiple ? "flex" : "none";
     if (nextBtn) nextBtn.style.display = multiple ? "flex" : "none";
@@ -113,6 +139,7 @@ if (lightbox) {
   };
   const closeLightbox = () => {
     lightbox.classList.remove("open");
+    if (lightboxVideo) lightboxVideo.innerHTML = ""; // stoppe la lecture
   };
 
   tiles.forEach((tile, i) => {
