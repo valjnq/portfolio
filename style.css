@@ -55,6 +55,15 @@ body {
   font-size: var(--step-0);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 img { max-width: 100%; display: block; }
@@ -258,6 +267,37 @@ p { margin: 0; }
    ========================================================================== */
 
 section { padding: 110px 0; }
+
+/* Le bloc juste avant la nav de projet (généralement la galerie) n'a pas
+   besoin de son padding-bottom complet : la nav a déjà son propre espacement. */
+section:has(+ .project-nav) { padding-bottom: 40px; }
+
+.linkedin-embed {
+  display: flex;
+  justify-content: center;
+}
+.linkedin-embed iframe {
+  width: 100%;
+  max-width: 504px;
+  aspect-ratio: 504 / 399;
+  height: auto;
+  border: 0;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 .reveal {
   opacity: 0;
@@ -1028,6 +1068,7 @@ form.contact-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-top: 1px solid var(--line);
+  margin-top: auto;
 }
 .project-nav a {
   padding: 40px 32px;
