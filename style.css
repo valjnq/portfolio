@@ -416,7 +416,9 @@ section:has(+ .project-nav) .eyebrow::before { background: var(--ink-faint); }
 
 @media (max-width: 760px) {
   .hero { padding-bottom: 20px; }
-  .work-grid { margin-top: 16px; }
+  .work-grid { margin-top: 8px !important; }
+  .hero-sub { margin-top: 8px !important; }
+  .sectors-line { margin-top: 8px !important; }
 }
 
 @media (max-width: 760px) {
