@@ -282,3 +282,43 @@ if (form) {
     // laisser la soumission suivre son cours normalement.
   });
 }
+
+// Liens "Projet précédent / suivant" — sur iOS, un tap juste après un scroll
+// rapide est parfois perdu (le navigateur hésite entre "stopper le scroll"
+// et "cliquer"). On gère le relâchement du doigt nous-mêmes : si le doigt
+// n'a pas vraiment bougé (= un vrai tap, pas un scroll), on navigue
+// immédiatement plutôt que d'attendre la décision du navigateur.
+document.querySelectorAll(".project-nav a").forEach((link) => {
+  let startX = 0;
+  let startY = 0;
+  let moved = false;
+
+  link.addEventListener(
+    "touchstart",
+    (e) => {
+      const t = e.touches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      moved = false;
+    },
+    { passive: true }
+  );
+
+  link.addEventListener(
+    "touchmove",
+    (e) => {
+      const t = e.touches[0];
+      if (Math.abs(t.clientX - startX) > 10 || Math.abs(t.clientY - startY) > 10) {
+        moved = true;
+      }
+    },
+    { passive: true }
+  );
+
+  link.addEventListener("touchend", (e) => {
+    if (!moved) {
+      e.preventDefault();
+      window.location.href = link.href;
+    }
+  });
+});
