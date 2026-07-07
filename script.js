@@ -69,14 +69,22 @@ if (revealGroup.length) {
         .querySelectorAll(".gallery-wrap")
         .forEach((el) => el.classList.add("is-visible"));
 
-      // iOS n'autorise parfois la lecture qu'une fois la vidéo réellement
-      // visible à l'écran (opacity > 0) — on tente donc .play() ICI,
-      // après la révélation, plutôt qu'au chargement de la page.
-      document.querySelectorAll(".gallery-tile video[autoplay]").forEach((v) => {
-        v.muted = true;
-        v.setAttribute("muted", "");
-        v.playsInline = true;
-        v.play().catch(() => {});
+      // iOS n'autorise la lecture que si la vidéo a déjà été réellement
+      // peinte à l'écran avec une opacité non nulle. Ajouter la classe et
+      // appeler .play() dans la même instruction ne suffit pas : le
+      // navigateur n'a pas encore eu la main pour peindre la transition.
+      // On attend donc deux frames avant de tenter la lecture.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document
+            .querySelectorAll(".gallery-tile video[autoplay]")
+            .forEach((v) => {
+              v.muted = true;
+              v.setAttribute("muted", "");
+              v.playsInline = true;
+              v.play().catch(() => {});
+            });
+        });
       });
     };
 
@@ -122,6 +130,17 @@ if (revealGroup.length) {
       .forEach((el) => el.classList.add("is-visible"));
   }
 }
+
+// Filet de sécurité ultime : si une vidéo en boucle n'a toujours pas démarré,
+// on retente au premier tap/clic de l'utilisateur sur la page.
+const retryStuckVideos = () => {
+  document.querySelectorAll(".gallery-tile video[autoplay]").forEach((v) => {
+    if (v.paused) v.play().catch(() => {});
+  });
+};
+["touchstart", "click"].forEach((evt) =>
+  document.addEventListener(evt, retryStuckVideos, { once: true, passive: true })
+);
 
 // Galerie projet — carrousel sur une ligne avec flèches
 document.querySelectorAll(".gallery-wrap").forEach((wrap) => {
