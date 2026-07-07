@@ -8,22 +8,6 @@ if (navToggle && navLinks) {
   });
 }
 
-// Forcer la lecture des vidéos en boucle (iOS Safari est plus strict et
-// n'honore pas toujours l'attribut autoplay tout seul : il faut aussi
-// déclencher .play() explicitement, avec muted réaffirmé en JS).
-document.querySelectorAll(".gallery-tile video[autoplay]").forEach((v) => {
-  v.muted = true;
-  v.setAttribute("muted", "");
-  v.playsInline = true;
-  const tryPlay = () => v.play().catch(() => {});
-  if (v.readyState >= 2) {
-    tryPlay();
-  } else {
-    v.addEventListener("loadeddata", tryPlay, { once: true });
-    v.addEventListener("canplay", tryPlay, { once: true });
-  }
-});
-
 // Apparition en fondu au scroll (respecte prefers-reduced-motion via CSS)
 const revealEls = document.querySelectorAll(".reveal:not(.reveal-group)");
 
@@ -84,6 +68,16 @@ if (revealGroup.length) {
       document
         .querySelectorAll(".gallery-wrap")
         .forEach((el) => el.classList.add("is-visible"));
+
+      // iOS n'autorise parfois la lecture qu'une fois la vidéo réellement
+      // visible à l'écran (opacity > 0) — on tente donc .play() ICI,
+      // après la révélation, plutôt qu'au chargement de la page.
+      document.querySelectorAll(".gallery-tile video[autoplay]").forEach((v) => {
+        v.muted = true;
+        v.setAttribute("muted", "");
+        v.playsInline = true;
+        v.play().catch(() => {});
+      });
     };
 
     const groupObserver2 = new IntersectionObserver(
